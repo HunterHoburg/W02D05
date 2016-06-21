@@ -1,5 +1,5 @@
 var express = require('express');
-var Users = require('../config/users_database');
+var User = require('../config/users_database');
 
 var router = express.Router();
 
@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-  Users.find({email: req.body.email}, function(err, user) {
+  User.find({email: req.body.email}, function(err, user) {
     if (user.hasOwnProperty()) {
       res.redirect('albums');
     } else {
@@ -17,13 +17,34 @@ router.post('/login', function(req, res, next) {
   });
 });
 
-router.post('/', function(req, res, next) {
-  console.log('USER: ', req.body);
-  res.redirect('albums');
+router.get('/new', function(req, res, next) {
+  res.render('users/new');
 });
 
-router.get('/new', function(req, res, next) {
-  res.render('users/new')
+router.post('/new', function(req, res, next) {
+  console.log('req.body: ', req.body.email);
+  // User.find({email: req.body.email} , function(err, user) {
+  //   console.log(user.email)
+  //   var user = new User(req.body)
+  //   user.save(function(err,user){
+  //     res.redirect('/albums')
+  //   })
+  var user = new User(req.body);
+  user.save(function(err, user) {
+    if(err) console.log('error: ', err);
+    console.log('user: ', user);
+  })
+    // if (user.email) {
+    //   console.log('it already exists');
+    //   res.redirect('/users')
+    // } else {
+    //   var user = new User(req.body)
+    //   user.save(function(err,album){
+    //
+    //     res.redirect('/albums');
+    //   })
+    // }
+  // });
 });
 
 module.exports = router;

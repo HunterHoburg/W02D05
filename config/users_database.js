@@ -5,7 +5,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 var usersSchema = mongoose.Schema({
   email: String,
-  password: String
+  password: String,
+  dinosaur: String
 });
 
 var User = mongoose.model('User', usersSchema);
