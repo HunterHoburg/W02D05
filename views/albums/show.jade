@@ -1,13 +1,13 @@
 extends ../layout
 block content
-  h1 Showing Album: #{album.album}
+  h1(id='albumTitle') #{album.album}
   br
   br
   h5 Genre: #{album.genre}
   br
   h5(id="artist") Artist: #{album.artist}
   br
-  a(href='/albums/#{album._id}/edit') Edit
+  a(href='/albums/#{album._id}/edit' id='edit') Edit
   br
   br
   form(name="new-album" method="POST" action="/albums/#{album._id}?_method=DELETE")

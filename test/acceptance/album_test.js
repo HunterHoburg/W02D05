@@ -100,7 +100,7 @@ describe('Album CRUD', function() {
         browser.get('/albums/' + album[0]._id);
         element(by.tagName('h1')).getText().then(function(text) {
 
-          expect(text).to.equal('Showing Album: ' + album[0].album);
+          expect(text).to.equal(album[0].album);
 
           done();
         });
@@ -129,6 +129,41 @@ describe('Album CRUD', function() {
           expect(text).to.equal('Albums')
           done();
         })
+      });
+    });
+  });
+
+  describe('edit page', function(){
+    it('redirects to edit form after clicking edit', function(done){
+      Album.find({}, function(err, album) {
+        browser.get('/albums/' + album[0]._id);
+        element(by.id('edit')).click()
+
+        element(by.tagName('h3')).getText().then(function(text) {
+          expect(text).to.equal('Edit album');
+        });
+
+        element(by.id('album')).getAttribute('value').then(function(text) {
+          expect(text).to.equal(album[0].album);
+          done();
+        });
+      });
+    });
+  });
+
+  describe('Update album', function(){
+    it('redirects to index after update is clicked', function(done){
+      Album.find({}, function(err, album) {
+        browser.get('/albums/' + album[0]._id);
+        element(by.id('edit')).click()
+
+        element(by.id('album')).clear().sendKeys("It worked")
+
+        element(by.id('update')).click()
+        element(by.id('albumTitle')).getText().then(function(text) {
+          expect(text).to.include('It worked');
+          done();
+        });
       });
     });
   });

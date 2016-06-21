@@ -7,17 +7,17 @@ block content
       p
         label(for="make") Artist
         br
-        input(type="text" name="artist" value="#{artist}")
+        input(type="text" name="artist" value="#{artist}" id='artist')
         br
       p
         label(for="make") Album
         br
-        input(type="text" name="album" value="#{album}")
+        input(type="text" name="album" value="#{album}" id='album')
         br
       p
         label(for="genre") Genre
         br
-        select(name='genre' value="Jazz" style="width: 100px")
+        select(name='genre' value="Jazz" style="width: 100px" id='genre')
           option(value='Rock' selected=('Rock'=="#{genre}")) Rock
           option(value='Jazz' selected=('Jazz'=="#{genre}")) Jazz
           option(value='Folk' selected=('Folk'=="#{genre}")) Folk
@@ -38,5 +38,5 @@ block content
         | Contains Explicit Lyrics
         br
       p
-        input(type="submit" value="Update album")
+        input(type="submit" value="Update album" id='update')
         a(href='/albums/#{_id}' style="margin-left: 7px") Cancel
