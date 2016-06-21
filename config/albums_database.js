@@ -10,6 +10,7 @@ var albumsSchema = mongoose.Schema({
   album: String,
   genre: String
 });
-Album = mongoose.model('Album', albumsSchema);
+
+var Album = mongoose.model('Album', albumsSchema);
 
 module.exports = Album;

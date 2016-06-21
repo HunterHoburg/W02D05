@@ -1,0 +1,32 @@
+extends ../layout
+block content
+  h1(id='loginTitle') Log In
+  br
+  br
+  h5 Log in here
+  div(class="border col-md-6")
+    form(name="signup" method="POST" action="/users")
+      p
+        label(for="make") Email
+        br
+        input(type="text" name="email" id='emailInput')
+        br
+      p
+        label(for="make") Password
+        br
+        input(type="text" name="password" id='passwordInput')
+      p
+        input(type="submit" value="Login!" id='Login')
+
+  div(class='border col-md-6')
+    p
+      a(type='submit' class='btn btn-primary btn-lg' href='users/new') New User?
+    p
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br

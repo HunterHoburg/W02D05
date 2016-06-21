@@ -1,0 +1,25 @@
+extends ../layout
+block content
+  h1(id='signupTitle') Sign Up
+  br
+  br
+  h5 Sign up here
+  div(class="border col-md-6")
+    form(name="signup" method="POST" action="/users/new")
+      p
+        label(for="make") Email
+        br
+        input(type="text" name="email" id='emailInput')
+        br
+      p
+        label(for="make") Password
+        br
+        input(type="text" name="password" id='passwordInput')
+        br
+      p
+        label(for='make') Favorite Dinosaur
+        br
+        input(type='text' name='dinosaur' id='dinosaurInput')
+        br
+      p
+        input(type="submit" value="Sign Up!" id='signUp')

@@ -1,5 +1,5 @@
 require('../helper');
-var Album = require('../../config/database');
+var Album = require('../../config/albums_database');
 
 
 
