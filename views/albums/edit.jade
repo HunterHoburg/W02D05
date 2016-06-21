@@ -1,0 +1,42 @@
+extends ../layout
+block content
+  h3(class='createTitle') Edit album
+
+  form(name="new-album" method="POST" action="/albums/#{_id}?_method=PUT")
+    div(class="border")
+      p
+        label(for="make") Artist
+        br
+        input(type="text" name="artist" value="#{artist}")
+        br
+      p
+        label(for="make") Album
+        br
+        input(type="text" name="album" value="#{album}")
+        br
+      p
+        label(for="genre") Genre
+        br
+        select(name='genre' value="Jazz" style="width: 100px")
+          option(value='Rock' selected=('Rock'=="#{genre}")) Rock
+          option(value='Jazz' selected=('Jazz'=="#{genre}")) Jazz
+          option(value='Folk' selected=('Folk'=="#{genre}")) Folk
+        br
+      p
+        label(for='stars') Stars
+        br
+        span 1
+        input(type='radio' name='stars' class="stars" value='1' checked=('1'=="#{stars}"))
+        input(type='radio' name='stars' class="stars" value='2' checked=('2'=="#{stars}"))
+        input(type='radio' name='stars' class="stars" value='3' checked=('3'=="#{stars}"))
+        input(type='radio' name='stars' class="stars" value='4' checked=('4'=="#{stars}"))
+        input(type='radio' name='stars' class="stars" value='5' checked=('5'=="#{stars}"))
+        span 5
+        br
+      p
+        input(type='checkbox' class="stars" name='explicit' checked=('on'=="#{explicit}"))
+        | Contains Explicit Lyrics
+        br
+      p
+        input(type="submit" value="Update album")
+        a(href='/albums/#{_id}' style="margin-left: 7px") Cancel

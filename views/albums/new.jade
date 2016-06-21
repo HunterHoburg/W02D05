@@ -1,0 +1,42 @@
+extends ../layout
+block content
+  h3(class="createTitle") Create album
+
+  form(name="new-album" method="POST" action="/albums")
+    div(class="border")
+      p
+        label(for="make") Artist
+        br
+        input(type="text" name="artist")
+        br
+      p
+        label(for="make") Album
+        br
+        input(type="text" name="album")
+        br
+      p
+        label(for="genre") Genre
+        br
+        select(name='genre' style="width: 100px")
+          option(value='Rock') Rock
+          option(value='Jazz') Jazz
+          option(value='Folk') Folk
+        br
+      p
+        label(for='stars') Stars
+        br
+        span 1
+        input(type='radio' name='stars' class='stars' value='1')
+        input(type='radio' name='stars' class='stars' value='2')
+        input(type='radio' name='stars' class='stars' value='3')
+        input(type='radio' name='stars' class='stars' value='4')
+        input(type='radio' name='stars' class='stars' value='5')
+        span 5
+        br
+      p
+        input(type='checkbox' name='explicit' class='stars')
+        | Contains Explicit Lyrics
+        br
+      p
+        input(type="submit" value="Create album")
+        a(href='/albums' style="margin-left: 7px") Cancel

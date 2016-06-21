@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a{
+  text-decoration: underline;
+}
+.border {
+  border: 1px solid black;
+  padding: 30px
+}
+
+.createTitle {
+  position: absolute;
+  top: 17px;
+  background-color: white;
+  left: 100px;
+}
+.stars {
+    display: inline;
+    margin: 5px !important;
+  }
