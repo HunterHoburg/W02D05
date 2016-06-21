@@ -157,11 +157,19 @@ describe('Album CRUD', function() {
         browser.get('/albums/' + album[0]._id);
         element(by.id('edit')).click()
 
-        element(by.id('album')).clear().sendKeys("It worked")
+        element(by.id('album')).clear().sendKeys("It worked");
+        element(by.id('artist')).clear().sendKeys('Hunter');
+        element(by.cssContainingText('option', 'Jazz')).click();
 
         element(by.id('update')).click()
         element(by.id('albumTitle')).getText().then(function(text) {
           expect(text).to.include('It worked');
+        });
+        element(by.id('artist')).getText().then(function(text) {
+          expect(text).to.include('Hunter');
+        });
+        element(by.id('genre')).getText().then(function(text) {
+          expect(text).to.include('Jazz');
           done();
         });
       });
